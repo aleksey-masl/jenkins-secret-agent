@@ -7,7 +7,7 @@
 
 pipeline {
     agent {
-        docker { image 'node:18.16.0-alpine' }
+        label "jenkins-agent2204"
     }
     stages {
         stage('build') {
