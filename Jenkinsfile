@@ -1,9 +1,9 @@
-node {
-    env.NODEJS_HOME = "${tool 'basic_node'}"
-    // on linux / mac
-    env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
-    sh 'npm --version'
-}
+//node {
+//    env.NODEJS_HOME = "${tool 'basic_node'}"
+//    // on linux / mac
+//    env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
+//    sh 'npm --version'
+//}
 
 pipeline {
     agent any
