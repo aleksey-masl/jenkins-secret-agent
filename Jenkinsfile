@@ -12,7 +12,7 @@ pipeline {
         stage('build') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/aleksey-masl/secret-agent.git'
+                    url: 'https://github.com/aleksey-masl/jenkins-secret-agent.git'
                 sh "npm install"
             }
         }
