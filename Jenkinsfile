@@ -7,7 +7,7 @@
 
 pipeline {
     agent {
-        label "jenkins-agent2204"
+        label "jenkins-agent"
     }
     stages {
         stage('build') {
