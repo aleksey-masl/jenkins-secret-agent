@@ -45,7 +45,7 @@ pipeline {
             sh "docker build -t secretagent:v1 . "
             sh "docker tag secretagent:v1 localhost:5000/secretagent:v1 "
             sh "docker push localhost:5000/secretagent:v1"
-            sh "docker run -d --network='host' -p 3050:3050 --name secret_agent localhost:5000/secretagent:v1 "
+            sh "docker run -d --network='host' -p 3050:3050 --name secret_agent --restart=always localhost:5000/secretagent:v1 "
             sh "echo 'Secret Agent up and running on port 3050' "
             }               
         }
