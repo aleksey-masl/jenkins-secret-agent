@@ -30,7 +30,8 @@ pipeline {
                 env.SECRET_AGENT_PORT = "3050"
                 echo "SECRET_AGENT_PORT is '${SECRET_AGENT_PORT}'"
             }
-            // If the local registry container does not exists, create it
+            // If thAe local registry container does not exists, create it
+            sh "id"
             sh """ if ! [ \$(docker ps --format '{{.Names}}' | grep -w registry &> /dev/null) ]; then
                      docker run -d --network='host' -p 5000:5000 --restart=always --name registry registry:2;
                    fi;
@@ -40,7 +41,6 @@ pipeline {
                      docker rm -f secret_agent;
                    fi;
                 """
-            sh "id"
             sh "docker build -t secretagent:v1 . "
             sh "docker tag secretagent:v1 localhost:5000/secretagent:v1 "
             sh "docker push localhost:5000/secretagent:v1"
