@@ -56,7 +56,6 @@ pipeline {
                      docker rm -f secret_agent;
                    fi;
                 """
-
             sh '''  
             docker build -t ${REPO}/secretagent:v1 .
             docker login -u ${env.dockerhubUser} -p ${env.dockerhubPassword}
