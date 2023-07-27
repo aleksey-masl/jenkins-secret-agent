@@ -10,12 +10,11 @@ pipeline {
     stages {
         stage('build') {
             agent {
-                docker {label ‘linux’ image 'node:bullseye-slim'}
+                docker {label ‘linux’ image 'alekseymasl/jenkins-agent-ubuntu2204-npm'}
             }
             steps {
                 git branch: 'main',
                     url: 'https://github.com/aleksey-masl/jenkins-secret-agent.git'
-                sh "chown -R 1004:1009 /.npm"
                 sh "npm install"
             }
         }
