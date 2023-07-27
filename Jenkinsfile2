@@ -15,7 +15,7 @@ pipeline {
             steps {
                 git branch: 'main',
                     url: 'https://github.com/aleksey-masl/jenkins-secret-agent.git'
-                sh "sudo chown -R 1004:1009 "/.npm"
+                sh "sudo chown -R 1004:1009 /.npm"
                 sh "npm install"
             }
         }
