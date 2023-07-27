@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('build') {
             agent {
-                docker (image 'node')
+                docker (image 'node:latest')
             }
             steps {
                 git branch: 'main',
