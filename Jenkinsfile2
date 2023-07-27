@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('build') {
             agent {
-                docker {label ‘linux’ image 'node:latest'}
+                docker {label ‘linux’ image 'node:bullseye-slim'}
             }
             steps {
                 git branch: 'main',
