@@ -8,13 +8,14 @@
 pipeline {
     agent none
     stages {
+        agent{
+            docker {image 'node:latest'}
+        }
+        environment {
+            NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
+        }
         stage('build') {
-            agent{
-                docker {image 'node:latest'}
-            }
-            environment {
-                NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
-            }
+
             steps {
                 git branch: 'main',
                     url: 'https://github.com/aleksey-masl/jenkins-secret-agent.git'
