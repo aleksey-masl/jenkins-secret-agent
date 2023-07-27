@@ -44,7 +44,7 @@ pipeline {
                 echo "SECRET_AGENT_PORT is '${SECRET_AGENT_PORT}'"
             }
             withCredentials([usernamePassword(credentialsId: 'dockerhub',
-                        passwordVariable: 'dockerhubPassword', usernameVariable: 'dockerhubUser')]) {
+                    passwordVariable: 'dockerhubPassword', usernameVariable: 'dockerhubUser')]) {
             // If thAe local registry container does not exists, create it
             sh "id"
             sh """ if ! [ \$(docker ps --format '{{.Names}}' | grep -w registry &> /dev/null) ]; then
@@ -56,9 +56,9 @@ pipeline {
                      docker rm -f secret_agent;
                    fi;
                 """
-            sh '''  
+            sh ''' 
             docker build -t ${REPO}/secretagent:v1 .
-            docker login -u ${env.dockerhubUser} -p ${env.dockerhubPassword}
+            docker login -u '${env.dockerhubUser}' -p '${env.dockerhubPassword}'
             docker push ${REPO}/secretagent:v1
             docker tag ${REPO}/secretagent:v1 localhost:5000/secretagent:v1
             docker push localhost:5000/secretagent:v1
