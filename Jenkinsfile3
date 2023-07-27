@@ -58,7 +58,7 @@ pipeline {
                 """
             sh ''' 
             docker build -t ${REPO}/secretagent:v1 .
-            docker login -u ${env.dockerhubUser} -p ${env.dockerhubPassword}
+            docker login -u $dockerhubUser -p $dockerhubPassword
             docker push ${REPO}/secretagent:v1
             docker tag ${REPO}/secretagent:v1 localhost:5000/secretagent:v1
             docker push localhost:5000/secretagent:v1
