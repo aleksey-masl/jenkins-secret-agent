@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('build') {
             agent{
-                docker {image 'node:latest'}
+                docker {image 'node:8.9-alpine'}
             }
             steps {
                 git branch: 'main',
@@ -23,7 +23,7 @@ pipeline {
         }
         stage('test') {
             agent{
-                docker {image 'node:latest'}
+                docker {image 'node:8.9-alpine'}
             }
             steps {
             script {
