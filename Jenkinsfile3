@@ -8,6 +8,7 @@
 pipeline {
     agent none
     environment {
+        HOME = "${WORKSPACE}"
         NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
         REPO = "alekseymasl"
     }
